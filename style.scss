@@ -1,0 +1,32 @@
+.lazy-stick {
+  left: 50%;
+  top: 50%;
+  margin: -50px -20px;
+  background: #ffb054;
+  width: 40px;
+  height: 100px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 2px solid black;
+  position: absolute;
+}
+$deg: 30deg;
+@for $i from 1 through 12 {
+  .lazy-stick:nth-child(#{$i}) { 
+  transform: rotate(240deg + $i*$deg) translate(120px) rotate(90deg);
+  opacity: ((13-$i)/12);
+  }
+}
+.lazy-stick:first-child {
+  img {
+    margin-top: 13px;
+    width: 100%;
+  }
+}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.loader-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  animation: spin 1.5s steps(12) infinite;
+}
